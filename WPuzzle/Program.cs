@@ -19,19 +19,6 @@ namespace WordP
             public static Dictionary<int, HashSet<string>> appDict;
 
             /// <summary>
-            /// returns true if word exists in dictionary
-            /// provided by spec but not used
-            /// </summary>
-            /// <param name="testWord"></param>
-            /// <returns></returns>
-            static bool IsWord(string testWord)
-            {
-                if (DICTIONARY.Contains(testWord))
-                    return true;
-                return false;
-            }
-
-            /// <summary>
             /// returns the input string in reverse form
             /// </summary>
             /// <param name="s"></param>
@@ -377,7 +364,6 @@ namespace WordP
                         {
                             if (debug_print) Console.WriteLine("HORIZ: ");
                             iter = ct_rows;
-                            str_length = ct_cols;
                         }
                         else
                         {
@@ -391,7 +377,6 @@ namespace WordP
                         {
                             if (debug_print) Console.WriteLine("VERT: ");
                             iter = ct_cols;
-                            str_length = ct_rows;
                         }
                         else
                         {
@@ -432,14 +417,13 @@ namespace WordP
                         {
                             if (debug_print) Console.WriteLine("FOR: ");
                             s = GetDiagFor(puzzle, i);
-                            str_length = GetLengthDiag(i);
                         }
                         else //mode = 3
                         {
                             if (debug_print) Console.WriteLine("Rev: ");
                             s = GetDiagRev(puzzle, i);
-                            str_length = GetLengthDiag(i);
                         }
+                        str_length = s.Length;
 
                         while (start < str_length)
                         {
